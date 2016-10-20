@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="statusbar_text_red">#FB464A</color>
+    <color name="statusbar_text_yellow">#EAC200</color>
+    <color name="statusbar_text_green">#66BB6A</color>
+</resources>

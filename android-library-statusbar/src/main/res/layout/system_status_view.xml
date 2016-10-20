@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_system_status"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:paddingRight="12dp">
+
+
+    <TextView
+        android:id="@+id/tv_system_battery"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/statusbar_shape_bg_green"
+        android:gravity="center_vertical"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:textColor="@color/statusbar_text_green"
+        android:text="100%"
+        android:textSize="12dp" />
+
+
+
+    <TextView
+        android:id="@+id/tv_system_time"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_toLeftOf="@+id/tv_system_battery"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/statusbar_shape_bg_green"
+        android:gravity="center_vertical"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:textColor="@color/statusbar_text_green"
+        android:text="9:20"
+        android:textSize="12dp" />
+
+    <ImageView
+        android:id="@+id/iv_system_location"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/tv_system_time"
+        android:background="@drawable/statusbar_shape_bg_green"
+        android:padding="6dp"
+        android:src="@drawable/statusbar_gps_ok" />
+
+    <TextView
+        android:id="@+id/tv_system_net"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/iv_system_location"
+        android:background="@drawable/statusbar_shape_bg_green"
+        android:gravity="center_vertical"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:textColor="@color/statusbar_text_green"
+        android:text="3G"
+        android:textSize="12dp" />
+
+
+    <ImageView
+        android:id="@+id/iv_system_vol"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/tv_system_net"
+        android:background="@drawable/statusbar_shape_bg_green"
+        android:padding="6dp"
+        android:src="@drawable/statusbar_vol_ok" />
+
+
+</RelativeLayout>
