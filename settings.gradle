@@ -1,1 +1,1 @@
-include ':app', ':android-library-statusbar'
+include ':app', ':statusbar'

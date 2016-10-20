@@ -1,0 +1,25 @@
+project.ext {
+
+    bintrayRepo = 'maven'
+    bintrayName = 'statusbar'
+
+    publishedGroupId = 'org.chen.statusbar'
+    libraryName = 'statusbar'
+    artifact = 'statusbar'
+
+    libraryDescription = 'Android System Status Bar'
+
+    siteUrl = 'https://github.com/czhzero/AndroidSystemStatusBar'
+    gitUrl = 'https://github.com/czhzero/AndroidSystemStatusBar.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'czhzero'
+    developerName = 'chenzhaohua'
+    developerEmail = 'czhpxl007@163.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+
+}
