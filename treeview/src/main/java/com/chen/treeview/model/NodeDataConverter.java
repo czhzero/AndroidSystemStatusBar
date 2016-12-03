@@ -1,14 +1,6 @@
 package com.chen.treeview.model;
 
 import android.text.TextUtils;
-
-import com.chen.treeview.model.Node;
-import com.chen.treeview.model.NodeChild;
-import com.chen.treeview.model.NodeId;
-import com.chen.treeview.model.NodeLabel;
-import com.chen.treeview.model.NodeName;
-import com.chen.treeview.model.NodePid;
-
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;

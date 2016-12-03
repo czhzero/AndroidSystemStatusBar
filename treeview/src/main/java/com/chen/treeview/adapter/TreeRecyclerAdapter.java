@@ -22,24 +22,22 @@ import java.util.List;
 
 public class TreeRecyclerAdapter<T> extends RecyclerView.Adapter<TreeBaseViewHolder> {
 
-    protected Context mContext;
-    protected List<Node<T>> mVisibleNodes;
-    protected List<Node<T>> mRootNodes;
+    private Context mContext;
+    private List<Node<T>> mVisibleNodes;
+    private List<Node<T>> mRootNodes;
     private OnNodeItemClickListener mOnNodeItemClickListener;
-    protected int mSelectMode = TreeRecyclerView.MODE_SINGLE_SELECT;
+    private int mSelectMode = TreeRecyclerView.MODE_SINGLE_SELECT;
 
     private OnNodeSwitchListener mOnNodeSwitchListener = new OnNodeSwitchListener() {
 
         @Override
         public void onExpand(Node node, int position) {
-            android.util.Log.d("czh", "onExpand");
             expandNode(filterNodeById(node.getId(), mRootNodes));
             rearrangeVisibleNodes();
         }
 
         @Override
         public void onShrink(Node node, int position) {
-            android.util.Log.d("czh", "onShrink");
             shrinkNode(filterNodeById(node.getId(), mRootNodes));
             rearrangeVisibleNodes();
         }
@@ -49,8 +47,6 @@ public class TreeRecyclerAdapter<T> extends RecyclerView.Adapter<TreeBaseViewHol
     private OnNodeCheckListener mOnNodeCheckListener = new OnNodeCheckListener() {
         @Override
         public void onCheck(boolean isChecked, int position, Node node) {
-            android.util.Log.d("czh", "onCheck");
-
             if (mOnNodeItemClickListener != null) {
                 mOnNodeItemClickListener.onItemClick(node.getContent());
             }
@@ -94,10 +90,62 @@ public class TreeRecyclerAdapter<T> extends RecyclerView.Adapter<TreeBaseViewHol
 
     /**
      * 返回选中
+     *
      * @return
      */
     public List<T> getSelectedItems() {
         return null;
+    }
+
+
+    @Override
+    public TreeBaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View view;
+        switch (viewType) {
+            case Node.TREE_NODE:
+                view = LayoutInflater.from(mContext).inflate(
+                        R.layout.listitem_tree_node, parent, false);
+                return new TreeNodeViewHolder<T>(view);
+            case Node.TREE_LEAF:
+                view = LayoutInflater.from(mContext).inflate(
+                        R.layout.listitem_tree_leaf, parent, false);
+                return new TreeLeafViewHolder<T>(view);
+            default:
+                return null;
+        }
+
+    }
+
+    @Override
+    public void onBindViewHolder(TreeBaseViewHolder holder, int position) {
+
+        switch (getItemViewType(position)) {
+            case Node.TREE_NODE:
+                TreeNodeViewHolder<T> nodeViewHolder = (TreeNodeViewHolder<T>) holder;
+                nodeViewHolder.bindView(mVisibleNodes.get(position),
+                        position, mOnNodeSwitchListener, mOnNodeCheckListener);
+                break;
+            case Node.TREE_LEAF:
+                TreeLeafViewHolder<T> leafViewHolder = (TreeLeafViewHolder<T>) holder;
+                leafViewHolder.bindView(mVisibleNodes.get(position),
+                        position, mOnNodeCheckListener);
+                break;
+            default:
+                break;
+        }
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return mVisibleNodes.size();
+    }
+
+
+    @Override
+    public int getItemViewType(int position) {
+        return mVisibleNodes.get(position).getType();
     }
 
 
@@ -204,57 +252,6 @@ public class TreeRecyclerAdapter<T> extends RecyclerView.Adapter<TreeBaseViewHol
                 }
             }
         }
-    }
-
-
-    @Override
-    public TreeBaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        View view;
-        switch (viewType) {
-            case Node.TREE_NODE:
-                view = LayoutInflater.from(mContext).inflate(
-                        R.layout.listitem_tree_node, parent, false);
-                return new TreeNodeViewHolder<T>(view);
-            case Node.TREE_LEAF:
-                view = LayoutInflater.from(mContext).inflate(
-                        R.layout.listitem_tree_leaf, parent, false);
-                return new TreeLeafViewHolder<T>(view);
-            default:
-                return null;
-        }
-
-    }
-
-    @Override
-    public void onBindViewHolder(TreeBaseViewHolder holder, int position) {
-
-        switch (getItemViewType(position)) {
-            case Node.TREE_NODE:
-                TreeNodeViewHolder<T> nodeViewHolder = (TreeNodeViewHolder<T>) holder;
-                nodeViewHolder.bindView(mVisibleNodes.get(position),
-                        position, mOnNodeSwitchListener, mOnNodeCheckListener);
-                break;
-            case Node.TREE_LEAF:
-                TreeLeafViewHolder<T> leafViewHolder = (TreeLeafViewHolder<T>) holder;
-                leafViewHolder.bindView(mVisibleNodes.get(position),
-                        position, mOnNodeCheckListener);
-                break;
-            default:
-                break;
-        }
-    }
-
-
-    @Override
-    public int getItemCount() {
-        return mVisibleNodes.size();
-    }
-
-
-    @Override
-    public int getItemViewType(int position) {
-        return mVisibleNodes.get(position).getType();
     }
 
 

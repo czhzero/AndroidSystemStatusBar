@@ -49,6 +49,7 @@ public class TreeRecyclerView extends FrameLayout {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         addView(mRecyclerView, lp);
+        mAdapter = new TreeRecyclerAdapter<>(mRecyclerView.getContext());
     }
 
 
@@ -84,9 +85,9 @@ public class TreeRecyclerView extends FrameLayout {
             nodeList = NodeDataConverter.convertToNodeList(list);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        mAdapter = new TreeRecyclerAdapter<>(mRecyclerView.getContext());
         setMode(mode);
         mAdapter.addAllData(nodeList);
         mRecyclerView.setAdapter(mAdapter);
