@@ -12,7 +12,7 @@ project.ext {
     siteUrl = 'https://github.com/czhzero/AndroidSystemStatusBar'
     gitUrl = 'https://github.com/czhzero/AndroidSystemStatusBar.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.0.1'
 
     developerId = 'czhzero'
     developerName = 'chenzhaohua'

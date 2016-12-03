@@ -1,4 +1,4 @@
-package org.chen.statusbar;
+package com.chen.treeview;
 
 import org.junit.Test;
 
