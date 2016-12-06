@@ -1,1 +1,1 @@
-include ':app', ':statusbar', ':treeview'
+include ':app', ':statusbar'

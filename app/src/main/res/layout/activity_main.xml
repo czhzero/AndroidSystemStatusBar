@@ -13,12 +13,5 @@
         android:layout_height="wrap_content"></org.chen.statusbar.SystemStatusView>
 
 
-    <com.chen.treeview.TreeRecyclerView
-        android:id="@+id/tree_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </com.chen.treeview.TreeRecyclerView>
-
 
 </LinearLayout>
