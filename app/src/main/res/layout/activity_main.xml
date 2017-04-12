@@ -9,8 +9,11 @@
 
     <org.chen.statusbar.SystemStatusView
         android:id="@+id/status_bar"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></org.chen.statusbar.SystemStatusView>
+        android:layout_height="wrap_content">
+
+    </org.chen.statusbar.SystemStatusView>
 
 
 
